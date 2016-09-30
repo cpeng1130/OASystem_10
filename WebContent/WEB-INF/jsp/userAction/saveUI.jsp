@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-	<title>UserInformation</title>
+	<title>UserInformationBoard</title>
     <%@ include file="/WEB-INF/jsp/public/common.jspf" %>
 </head>
 <body>

@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <html>
 <head>
-	<title>查看主题：${topic.title}</title>
+	<title>Topic：${topic.title}</title>
     <%@ include file="/WEB-INF/jsp/public/common.jspf" %>
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/forum.css" />
 </head>
@@ -21,10 +21,10 @@
 <!--内容显示-->	
 <div id="MainArea">
 	<div id="PageHead"></div>
-	<center>
+<!-- 	<center> -->
 		<div class="ItemBlock_Title1" style="width: 98%">
 			<font class="MenuPoint"> &gt; </font>
-			<s:a action="forumAction_list">论坛</s:a>
+			<s:a action="forumAction_list">Forum</s:a>
 			<font class="MenuPoint"> &gt; </font>
 			<s:a action="forumAction_show?id=%{#topic.forum.id}">${topic.forum.name}</s:a>
 			<font class="MenuPoint"> &gt;&gt; </font>
@@ -106,7 +106,7 @@
 					</tr>
 				</table>
 			</div>
-			</s:if>
+		</s:if> 
 			<!-- ~~~~~~~~~~~~~~~ 显示主帖结束 ~~~~~~~~~~~~~~~ -->
 
 
@@ -124,6 +124,7 @@
 							<!--作者名称-->
 							<div class="AuthorName">${author.name}</div>
 						</td>
+						
 						<td align="center">
 							<ul class="TopicFunc">
 								<!--操作列表-->
@@ -183,7 +184,7 @@
 				</tr>
 			</table>
 		</div>
-	</center>
+<!-- 	</center> -->
 			
 	<!--快速回复-->
 	<div class="QuictReply">
