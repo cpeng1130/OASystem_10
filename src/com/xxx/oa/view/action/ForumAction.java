@@ -26,14 +26,21 @@ public class ForumAction extends BaseAction<Forum>{
 		// forum
 		Forum forum= forumService.getById(model.getId());
 		ActionContext.getContext().put("forum", forum);
-		
+		System.out.println(forum);
 		
 		//  topiclist
-		List <Topic> topicList= topicService.findByForum(forum);
+		/*List <Topic> topicList= topicService.findByForum(forum);
 		ActionContext.getContext().put("topicList", topicList);
 		
 		// prepare topic data for pagination
 		PageBean pageBean = topicService.getPageBean(pageNum,forum);
+		ActionContext.getContext().getValueStack().push(pageBean);*/
+		
+		String hql="FROM Topic t where t.forum=? ORDER BY (CASE t.type WHEN 2 THEN 2 ELSE 0 END) DESC ,t.lastUpdateTime DESC";
+		Object [] parameters= new Object[]{forum};
+		PageBean pageBean = replyService.getPageBean(pageNum, hql, parameters);
+		ActionContext.getContext().getValueStack().push(pageBean);
+		
 		return "show";
 		
 		

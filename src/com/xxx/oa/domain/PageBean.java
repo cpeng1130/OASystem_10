@@ -30,6 +30,7 @@ public class PageBean {
 		this.pageSize = pageSize;
 		this.recordList = recordList;
 		this.recordCount = recordCount;
+		System.out.println(recordList);
 		
 		//  ****************************
 		pageCount =(recordCount+pageSize-1)/pageSize;

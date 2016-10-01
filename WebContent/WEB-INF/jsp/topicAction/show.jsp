@@ -95,7 +95,7 @@
 					<tr><!--显示楼层等信息-->
 						<td class="Footer" height="28" align="center" valign="bottom">
 							<ul style="margin: 0px; width: 98%;">
-								<li style="float: left; line-height:18px;"><font color=#C30000>[楼主]</font>
+								<li style="float: left; line-height:18px;"><font color=#C30000>[Topic-Sponsor]</font>
 									<s:date name="%{#topic.postTime}" format="yyyy-MM-dd HH:mm:ss"/>
 								</li>
 								<li style="float: right;"><a href="javascript:scroll(0,0)">
@@ -148,7 +148,7 @@
 					<tr><!--显示楼层等信息-->
 						<td class="Footer" height="28" align="center" valign="bottom">
 							<ul style="margin: 0px; width: 98%;">
-								<li style="float: left; line-height:18px;"><font color=#C30000>[${(currentPage - 1) * pageSize + status.count}楼]</font>
+								<li style="float: left; line-height:18px;"><font color=#C30000>[${(currentPage - 1) * pageSize + status.count}floor]</font>
 									<s:date name="%{postTime}" format="yyyy-MM-dd HH:mm:ss"/>
 								</li>
 								<li style="float: right;"><a href="javascript:scroll(0,0)">
@@ -164,7 +164,7 @@
 		</div>
 
 		<!--分页信息-->
-<%--  		<%@ include file="/WEB-INF/jsp/public/pageView.jspf" %>  --%>
+  <%-- 		<%@ include file="/WEB-INF/jsp/public/pageView.jspf" %>   --%>
 		<script type="text/javascript">
 			function gotoPage( pageNum ){
 				window.location.href = "topicAction_show.action?id=${id}&pageNum=" + pageNum;

@@ -5,9 +5,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.xxx.oa.cfg.Configuration;
+import com.xxx.oa.domain.PageBean;
+import com.xxx.oa.domain.Reply;
 
 
 
@@ -70,5 +75,39 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 */
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
+	}
+
+
+	//public method to pagination
+	public PageBean getPageBean(int pageNum, String queryListHQL,
+			Object[] parameters) {
+		System.out.println("==================== ");
+		int pageSize= Configuration.getPageSize();
+		
+		// get content of currentpage
+		
+		Query listQuery= getSession().createQuery(queryListHQL);
+		if(parameters!=null && parameters.length>0){
+			for(int i=0;i<parameters.length;i++){
+				
+				listQuery.setParameter(i, parameters[i]);
+			}
+		}
+		listQuery.setFirstResult((pageNum-1)*pageSize);
+		listQuery.setMaxResults(pageSize);
+		List list=listQuery.list();
+		
+		
+		//
+		Query countQuery=getSession().createQuery("SELECT COUNT(*) "+queryListHQL);
+		if(parameters!=null && parameters.length>0){
+			for(int i=0;i<parameters.length;i++){
+				
+				countQuery.setParameter(i, parameters[i]);
+			}
+		}
+			Long count=	(Long) countQuery.uniqueResult();
+		return new PageBean(pageNum, pageSize, list, count.intValue());
+	
 	}
 }

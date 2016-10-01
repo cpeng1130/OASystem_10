@@ -3,6 +3,8 @@ package com.xxx.oa.base;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+
+import com.xxx.oa.domain.PageBean;
 @Repository
 public interface BaseDao<T> {
 	
@@ -46,4 +48,12 @@ public interface BaseDao<T> {
 	 */
 	List<T> findAll();
 	
+	/**
+	 * public method for pagination
+	 * @param pageNum
+	 * @param queryListHQL
+	 * @param parameters match with sql(?)
+	 * @return
+	 */
+	PageBean getPageBean(int pageNum,String queryListHQL, Object[] parameters);
 }

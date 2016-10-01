@@ -82,7 +82,7 @@
 
 					<!--主题列表-->
 					<tbody class="dataContainer" datakey="topicList">
-						<s:iterator value="#topicList">
+						<s:iterator value="recordList">
 							<tr height="35" id="d0" class="template">
 								<td></td>
 								<td class="ForumTopicPageDataLine" align="center"><img

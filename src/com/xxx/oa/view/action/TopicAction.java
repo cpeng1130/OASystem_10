@@ -1,6 +1,7 @@
 package com.xxx.oa.view.action;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
@@ -10,6 +11,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.xxx.oa.base.BaseAction;
 import com.xxx.oa.domain.Forum;
 import com.xxx.oa.domain.PageBean;
+import com.xxx.oa.domain.Reply;
 import com.xxx.oa.domain.Topic;
 @Controller
 @Scope("prototype")
@@ -37,13 +39,17 @@ public class TopicAction extends BaseAction<Topic>{
 		
 		// prepare date  replyList's pagination information
 	/*	List<Reply> replyList= replyService.findByTopic(topic);
-		ActionContext.getContext().put("replyList",replyList);*/
+		ActionContext.getContext().put("replyList",replyList);
 		
 		
 		PageBean pageBean= replyService.getPageBean(pageNum,topic);
+		ActionContext.getContext().getValueStack().push(pageBean);*/
+		
+		// use public method to get pagination information
+		String hql="FROM Reply r WHERE r.topic=? ORDER BY r.postTime ASC";
+		Object [] parameters= new Object[]{topic};
+		PageBean pageBean= replyService.getPageBean(pageNum,hql,parameters);
 		ActionContext.getContext().getValueStack().push(pageBean);
-		
-		
 		
 		return "show";
 	}

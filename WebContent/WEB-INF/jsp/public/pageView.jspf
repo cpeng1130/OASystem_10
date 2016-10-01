@@ -9,7 +9,7 @@
 	</div>
 	<div id=PageSelectorSelectorArea>
 	
-		<a href="javascript: gotoPage(1)" title="首页" style="cursor: hand;">
+		<a href="javascript: gotoPage(1)" title="FirstPage" style="cursor: hand;">
 			<img src="${pageContext.request.contextPath}/style/blue/images/pageSelector/firstPage.png"/>
 		</a>
 		
@@ -33,8 +33,8 @@
 			</s:iterator>
 		</select>		
 		<script type="text/javascript">
-			// 回显页码
-			$("#pn").val(${currentPage});
+			// 回显页码${currentPage}
+			//$("#pn").val(${currentPage });
 		</script>
 		
 	</div>
