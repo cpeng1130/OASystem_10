@@ -151,7 +151,8 @@
 	</div>
 
 	<!--分页信息-->
-	<div id=PageSelectorBar>
+	 <%@ include file="/WEB-INF/jsp/public/pageView.jspf" %>
+	<%-- <div id=PageSelectorBar>
 		<div id=PageSelectorMemo>Page：7/13页 &nbsp; 每页显示：30条 &nbsp;
 			总记录数：385条</div>
 		<div id=PageSelectorSelectorArea>
@@ -187,7 +188,12 @@
 				type="text" value="1" name="currPage" tabindex="0" /> <input
 				type="submit" name="goBtn" value="Go" class="MiddleButtonStyle" />
 		</div>
-	</div>
+	</div> --%>
+	<script type="text/javascript">
+		function gotoPage(pageNum){
+			window.location.href="forumAction_show.action?id=${id}&pageNum="+pageNum;
+		}
+	</script>
 
 	<div class="Description">
 		Hint：<br /> 1，主题默认按最后更新的时间降序排列。最后更新时间是指主题最后回复的时间，如果没有回复，就是主题发表的时间。<br />
