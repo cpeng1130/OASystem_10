@@ -164,7 +164,7 @@
 		</div>
 
 		<!--分页信息-->
-<%-- 		<%@ include file="/WEB-INF/jsp/public/pageView.jspf" %> --%>
+<%--  		<%@ include file="/WEB-INF/jsp/public/pageView.jspf" %>  --%>
 		<script type="text/javascript">
 			function gotoPage( pageNum ){
 				window.location.href = "topicAction_show.action?id=${id}&pageNum=" + pageNum;

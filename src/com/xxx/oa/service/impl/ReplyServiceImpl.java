@@ -2,6 +2,7 @@ package com.xxx.oa.service.impl;
 
 import java.util.List;
 
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,11 +13,11 @@ import com.xxx.oa.domain.PageBean;
 import com.xxx.oa.domain.Reply;
 import com.xxx.oa.domain.Topic;
 import com.xxx.oa.service.ReplyService;
+@SuppressWarnings("unchecked")
 @Service
 @Transactional
 public class ReplyServiceImpl extends BaseDaoImpl<Reply> implements ReplyService {
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Reply> findByTopic(Topic topic) {
 		return getSession().createQuery("FROM Reply r WHERE r.topic=? ORDER BY r.postTime ASC")
@@ -53,7 +54,7 @@ public class ReplyServiceImpl extends BaseDaoImpl<Reply> implements ReplyService
 			int pageSize= Configuration.getPageSize();
 			
 			// get content of currentpage
-			@SuppressWarnings("unchecked")
+			
 			List<Reply> list= getSession().createQuery("FROM Reply r WHERE r.topic=? ORDER BY r.postTime ASC")
 					.setParameter(0, topic)
 					.setFirstResult((pageNum-1)*pageSize)

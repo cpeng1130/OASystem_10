@@ -59,4 +59,16 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	protected User getCurrentUser(){
 		return (User) ActionContext.getContext().getSession().get("user");
 	}
+	
+	// default value of beginpagenum=1
+		protected  int pageNum=1;
+		
+		
+		//-------------------------------------------
+		public int getPageNum() {
+			return pageNum;
+		}
+		public void setPageNum(int pageNum) {
+			this.pageNum = pageNum;
+		}
 }

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import com.opensymphony.xwork2.ActionContext;
 import com.xxx.oa.base.BaseAction;
 import com.xxx.oa.domain.Forum;
+import com.xxx.oa.domain.PageBean;
 import com.xxx.oa.domain.Topic;
 import com.xxx.oa.service.ForumService;
 @Controller
@@ -30,7 +31,12 @@ public class ForumAction extends BaseAction<Forum>{
 		//  topiclist
 		List <Topic> topicList= topicService.findByForum(forum);
 		ActionContext.getContext().put("topicList", topicList);
+		
+		// prepare topic data for pagination
+		PageBean pageBean = topicService.getPageBean(pageNum,forum);
 		return "show";
+		
+		
 	}
 	
 	

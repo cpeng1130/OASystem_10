@@ -16,17 +16,7 @@ import com.xxx.oa.domain.Topic;
 public class TopicAction extends BaseAction<Topic>{
 	
 	private Long forumId;
-	// default value of beginpagenum=1
-	private  int pageNum=1;
 	
-	
-	//-------------------------------------------
-	public int getPageNum() {
-		return pageNum;
-	}
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
-	}
 	
 	
 	public Long getForumId() {
