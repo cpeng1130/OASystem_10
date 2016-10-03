@@ -38,6 +38,8 @@
 	</div>
 
 
+<s:form action ="formAction_show?id=%{id}">
+
 
 	<div id="MainArea">
 		<div id="PageHead"></div>
@@ -149,7 +151,7 @@
 			</div>
 		</center>
 	</div>
-
+</s:form>
 	<!--分页信息-->
 	 <%@ include file="/WEB-INF/jsp/public/pageView.jspf" %>
 	<%-- <div id=PageSelectorBar>

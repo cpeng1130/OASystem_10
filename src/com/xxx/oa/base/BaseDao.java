@@ -55,5 +55,5 @@ public interface BaseDao<T> {
 	 * @param parameters match with sql(?)
 	 * @return
 	 */
-	PageBean getPageBean(int pageNum,String queryListHQL, Object[] parameters);
+	PageBean getPageBean(int pageNum,String queryListHQL,Object[] parameters);
 }
