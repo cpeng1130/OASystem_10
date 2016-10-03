@@ -13,6 +13,7 @@ import com.xxx.oa.domain.Department;
 import com.xxx.oa.domain.Role;
 import com.xxx.oa.domain.User;
 import com.xxx.oa.utils.DepartmentUtils;
+import com.xxx.oa.utils.HqlHelper;
 
 @Controller
 @Scope("prototype")
@@ -49,8 +50,9 @@ public class UserAction extends BaseAction<User> {
 	}
 
 	public String list() throws Exception {
-		List<User> userList = userService.findAll();
-		ActionContext.getContext().put("userList", userList);
+		//List<User> userList = userService.findAll();
+		//ActionContext.getContext().put("userList", userList);
+		 new HqlHelper(User.class).buildPageBeanForStruts2(pageNum, userService);
 		return "list";
 	}
 

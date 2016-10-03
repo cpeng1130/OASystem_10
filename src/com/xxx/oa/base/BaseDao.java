@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.xxx.oa.domain.PageBean;
+import com.xxx.oa.utils.HqlHelper;
 @Repository
 public interface BaseDao<T> {
 	
@@ -49,11 +50,21 @@ public interface BaseDao<T> {
 	List<T> findAll();
 	
 	/**
-	 * public method for pagination
+	 * create a public method for pagination
 	 * @param pageNum
 	 * @param queryListHQL
 	 * @param parameters match with sql(?)
 	 * @return
 	 */
+	@Deprecated
 	PageBean getPageBean(int pageNum,String queryListHQL,Object[] parameters);
+
+	/**
+	 * 
+	 * @param pageNum
+	 * @param hqlHelper
+	 * 		  condition(HQL and paramters)
+	 * @return
+	 */
+	PageBean getPageBean(int pageNum, HqlHelper hqlHelper);
 }

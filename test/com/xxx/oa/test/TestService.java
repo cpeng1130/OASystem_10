@@ -20,4 +20,13 @@ public class TestService {
 		session.save(new User());
 	}
 	
+	@Transactional
+	public void saveUsers_23(){
+		Session session = sessionFactory.getCurrentSession();
+		for(int i=1;i<23;i++){
+			User user = new User();
+			user.setName("test-"+i);
+			session.save(user);
+		}
+	}
 }

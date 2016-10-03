@@ -7,6 +7,7 @@ import com.xxx.oa.base.BaseDao;
 import com.xxx.oa.domain.PageBean;
 import com.xxx.oa.domain.Reply;
 import com.xxx.oa.domain.Topic;
+import com.xxx.oa.utils.HqlHelper;
 
 public interface ReplyService extends BaseDao<Reply>{
 	
@@ -26,6 +27,8 @@ public interface ReplyService extends BaseDao<Reply>{
 	 */
 	@Deprecated
 	PageBean getPageBean(int pageNum, Topic topic);
+
+	PageBean getPageBean(int pageNum, HqlHelper hqlHelper);
 
 
 }

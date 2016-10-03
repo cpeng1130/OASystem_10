@@ -25,7 +25,7 @@ public class SpringTest {
 	
 	
 	//test SessionFactory
-	@Test
+	//@Test
 	public void testSessionFactory()throws Exception{
 		SessionFactory sessionFactory=(SessionFactory) ac.getBean("sessionFactory");
 		System.out.println(sessionFactory);
@@ -36,4 +36,11 @@ public class SpringTest {
 		TestService testService=(TestService) ac.getBean("testService");
 		testService.save2Users();
 	}
+	
+	//test Transaction
+		@Test
+		public void testUser()throws Exception{
+			TestService testService=(TestService) ac.getBean("testService");
+			testService.saveUsers_23();
+		}
 }

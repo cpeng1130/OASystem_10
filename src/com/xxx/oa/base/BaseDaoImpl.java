@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.xxx.oa.cfg.Configuration;
 import com.xxx.oa.domain.PageBean;
 import com.xxx.oa.domain.Reply;
+import com.xxx.oa.utils.HqlHelper;
 
 
 
@@ -59,11 +60,11 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			return  Collections.EMPTY_LIST;
 		}
 		
-		return getSession().createQuery("FROM "+clazz.getSimpleName()+" WHERE id IN (:ids)").setParameterList("ids", ids).list();
+		return getSession().createQuery(" FROM "+clazz.getSimpleName()+" WHERE id IN (:ids)").setParameterList("ids", ids).list();
 	}
 
 	public List<T> findAll() {
-		return getSession().createQuery("FROM "
+		return getSession().createQuery(" FROM "
 	+ clazz.getSimpleName())
 	.list();
 	}
@@ -98,7 +99,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		
 		
 		//
-		Query countQuery=getSession().createQuery("SELECT COUNT(*) "+queryListHQL);
+		Query countQuery=getSession().createQuery(" SELECT COUNT(*) "+queryListHQL);
 		if(parameters!=null && parameters.length>0){
 			for(int i=0;i<parameters.length;i++){
 				
@@ -108,5 +109,39 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			Long count=	(Long) countQuery.uniqueResult();
 		return new PageBean(pageNum, pageSize, list, count.intValue());
 	
+	}
+
+	
+	// Final version 
+	@Override
+	public PageBean getPageBean(int pageNum, HqlHelper hqlHelper) {
+		
+		System.out.println("==================== getPageBean(int pageNum, HqlHelper hqlHelper)");
+		int pageSize= Configuration.getPageSize();
+		
+		List<Object> parameters =hqlHelper.getParameters();
+		// get content of currentpage
+		
+		Query listQuery= getSession().createQuery(hqlHelper.getQueryListHql());
+		if(parameters!=null && parameters.size()>0){
+			for(int i=0;i<parameters.size();i++){
+				listQuery.setParameter(i, parameters.get(i));
+			}
+		}
+		listQuery.setFirstResult((pageNum-1)*pageSize);
+		listQuery.setMaxResults(pageSize);
+		List list=listQuery.list();
+		
+		
+		//
+		Query countQuery=getSession().createQuery(hqlHelper.getQueryCountHql());
+		if(parameters!=null && parameters.size()>0){
+			for(int i=0;i<parameters.size();i++){
+				
+				countQuery.setParameter(i, parameters.get(i));
+			}
+		}
+			Long count=	(Long) countQuery.uniqueResult();
+		return new PageBean(pageNum, pageSize, list, count.intValue());
 	}
 }

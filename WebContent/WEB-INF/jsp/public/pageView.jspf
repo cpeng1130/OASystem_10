@@ -26,7 +26,7 @@
 			<img src="${pageContext.request.contextPath}/style/blue/images/pageSelector/lastPage.png"/>
 		</a>
 		
-		Direct to：
+		Direct to:
 		<select id="pn" onchange="gotoPage(this.value)">
 			<s:iterator begin="1" end="%{pageCount}" var="num">
 				<option value="${num}">${num}</option>					
