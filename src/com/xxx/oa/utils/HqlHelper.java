@@ -164,7 +164,7 @@ public class HqlHelper {
 	 */
 	public HqlHelper buildPageBeanForStruts2(int pageNum, BaseDao<?> service) {
 		PageBean pageBean = service.getPageBean(pageNum, this);
-		  ActionContext.getContext().getValueStack().push(pageBean);
+		ActionContext.getContext().getValueStack().push(pageBean);
 		return this;
 	}
 }
