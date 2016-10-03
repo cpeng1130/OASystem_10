@@ -38,9 +38,7 @@
 	</div>
 
 
-<s:form action ="formAction_show?id=%{id}">
-
-
+<s:form action ="formAction_show?id=%{id}">	
 	<div id="MainArea">
 		<div id="PageHead"></div>
 		<center>
@@ -128,19 +126,12 @@
 							align="left">
 							<tr valign=bottom>
 								<td></td>
-								<td><select name="viewType">
-										<option value="0">ALL TOPIC</option>
-										<option value="1">ALL TOP TOPIC</option>
-
-								</select> <select name="orderBy">
-										<option value="0">默认排序（按最后更新时间排序，但所有置顶帖都在前面）</option>
-										<option value="1">按最后更新时间排序</option>
-										<option value="2">按主题发表时间排序</option>
-										<option value="3">按回复数量排序</option>
-								</select> <select name="reverse">
-										<option value="true">Descending Sort</option>
-										<option value="false">Ascending Sort</option>
-								</select> <input type="IMAGE"
+								<td>
+								<s:select name="viewType" list="#{0:'ALL TOPIC', 1: 'ALL TOP TOPIC'}"/> 
+								<s:select name="orderBy" onchange="onSortByChange(this.value)"
+								 list="#{0:'默认排序（按最后更新时间排序，但所有置顶帖都在前面）',1:'按最后更新时间排序',2:'按主题发表时间排序',3:'按回复数量排序' }"/>
+								 <s:select name="asc" list="#{false:'Descending Sort',true:'Ascending Sort' }"/>
+								<input type="IMAGE"
 									src="${pageContext.request.contextPath}/style/blue/images/button/submit.PNG"
 									align="ABSMIDDLE" /></td>
 							</tr>
@@ -191,11 +182,8 @@
 				type="submit" name="goBtn" value="Go" class="MiddleButtonStyle" />
 		</div>
 	</div> --%>
-	<script type="text/javascript">
-		function gotoPage(pageNum){
-			window.location.href="forumAction_show.action?id=${id}&pageNum="+pageNum;
-		}
-	</script>
+	
+	
 
 	<div class="Description">
 		Hint：<br /> 1，主题默认按最后更新的时间降序排列。最后更新时间是指主题最后回复的时间，如果没有回复，就是主题发表的时间。<br />

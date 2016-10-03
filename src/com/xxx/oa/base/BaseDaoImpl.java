@@ -89,7 +89,6 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		Query listQuery= getSession().createQuery(queryListHQL);
 		if(parameters!=null && parameters.length>0){
 			for(int i=0;i<parameters.length;i++){
-				
 				listQuery.setParameter(i, parameters[i]);
 			}
 		}
