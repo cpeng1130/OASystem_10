@@ -126,7 +126,7 @@ public class UserAction extends BaseAction<User> {
 				roleIds[index++]=role.getId();
 			}
 		}
-		return "saveUI";
+		return "editUI";
 	}
 
 	public String edit() throws Exception {

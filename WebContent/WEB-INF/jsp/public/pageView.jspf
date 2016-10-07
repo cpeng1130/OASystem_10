@@ -33,7 +33,7 @@
 			</s:iterator>
 		</select>		
 		<script type="text/javascript">
-			// 回显页码${currentPage}
+			// data callback ${currentPage}
 			("#pn").val(${currentPage });
 		</script>
 		
@@ -41,9 +41,9 @@
 </div>
 <script type="text/javascript">
 		function gotoPage(pageNum){
-		//	window.location.href="forumAction_show.action?id=${id}&pageNum="+pageNum;
+			//window.location.href="forumAction_show.action?id=${id}&pageNum="+pageNum;
 			//document.forms[0].pageNum.vaule=pageNum
 			$(document.forums[0]).append("<input type='hidden' name='pageNum'  value='"+pageNum+"'>");
-			document.forms[0].submit();// sumbit form
+			$(document.forms[0]).submit();// sumbit form
 		}
-	</script>
+</script>

@@ -2,7 +2,7 @@
 	
 	<html>
 <head>
-	<title>帖子回复</title>
+	<title>Reply</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <%@ include file="/WEB-INF/jsp/public/common.jspf" %>
 	<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/style/blue/forum.css" />

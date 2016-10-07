@@ -16,6 +16,7 @@
 	</div>
 </div>
 <div id="MainArea">
+	x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x'x
 	<center>
 		<div class="ForumPageTableBorder" style="margin-top: 25px;">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">

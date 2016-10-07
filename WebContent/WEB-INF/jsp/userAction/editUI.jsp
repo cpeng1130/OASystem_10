@@ -23,7 +23,7 @@
 <div id=MainArea>
 
   <%--   <s:form action="userAction_%{id == null ? 'add' : 'edit'}"> --%>
-    <s:form action="userAction_%{'add'}">
+    <s:form action="userAction_%{'edit'}">
     	<s:hidden name="id"></s:hidden>
     
         <div class="ItemBlock_Title1"><div class="ItemBlock_Title1">
